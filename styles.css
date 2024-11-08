@@ -1,0 +1,39 @@
+/* Add your custom styles below */
+body {
+    font-family: Arial, sans-serif; /* Font for better readability */
+    background-color: #f4f4f4; /* Light background color */
+    margin: 0;
+    padding: 20px;
+}
+h1, h2 {
+    color: #333; /* Darker text color for headings */
+}
+table {
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Remove space between table cells */
+    margin-top: 20px; /* Space above the table */
+}
+th, td {
+    padding: 10px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd; /* Light border for table cells */
+}
+th {
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text for header */
+}
+tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+a {
+    display: inline-block; /* Make the link a block element */
+    margin-top: 20px; /* Space above the link */
+    padding: 10px 15px; /* Padding for the link */
+    background-color: #4CAF50; /* Green background for the button */
+    color: white; /* White text for the button */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+}
+a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error: Could not record contribution.";
     }
 }
+
+// Pata michango ya mtumiaji
+$user_id = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT amount, contribution_date FROM contributions WHERE user_id = ?");
+$stmt->execute([$user_id]);
+$contributions = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -66,11 +72,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <!-- Contribution Form -->
-     <h1>Contribute Now</h1>
-<form method="POST" action="contribution.php">
-    <input type="number" name="amount" placeholder="Contribution Amount" required>
-    <button type="submit">Submit Contribution</button>
-</form>
+    <h1>Contribute Now</h1>
+    <form method="POST" action="contribution.php">
+        <input type="number" name="amount" placeholder="Contribution Amount" required>
+        <button type="submit">Submit Contribution</button>
+    </form>
+
+    <!-- Onyesha Orodha ya Michango -->
+    <h2>Michango Yako</h2>
+    <table>
+        <tr>
+            <th>Kiasi</th>
+            <th>Tarehe ya Mchango</th>
+        </tr>
+        <?php foreach ($contributions as $contribution): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($contribution['amount']); ?></td>
+            <td><?php echo htmlspecialchars($contribution['contribution_date']); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
 
